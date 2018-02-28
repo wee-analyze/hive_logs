@@ -15,8 +15,9 @@ STORED AS TEXTFILE LOCATION "/lab";
 
 
 --load data into log_raw
-LOAD DATA INPATH "/lab/data" INTO TABLE log_raw;   --loading data into the table; data will disappear and no longer be in original location.
-;
+--loading data into the table; data will disappear and no longer be in original location.
+LOAD DATA INPATH "/lab/data" INTO TABLE log_raw;
+
 -- It is also possible to make the external table connect directly to the data instead so the data is never moved by using instead
 -- STORED AS TEXTFILE LOCATION "/lab/data"
 ;
