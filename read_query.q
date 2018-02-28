@@ -1,6 +1,5 @@
---load data into HDFS and put in a folder called "lab/data".
+--load data into a HDFS folder called "lab/data".
 
---create external empty table. If you point the location path to data it will automatically fill the table.
 CREATE EXTERNAL TABLE log_raw
 (
 log_date DATE, 
@@ -10,14 +9,16 @@ method STRING,
 website STRING
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY " "   --must use the datafiles delimiter. do NOT make up your own.
-STORED AS TEXTFILE LOCATION "/lab";  -- should point to data if you want to query directly without loading data.
--- get table info such as it's path  
--- DESCRIBE FORMATTED log_raw;
+STORED AS TEXTFILE LOCATION "/lab";  
+-- get table info such as it's path with DESCRIBE FORMATTED log_raw;
 ;
 
 
 --load data into log_raw
 LOAD DATA INPATH "/lab/data" INTO TABLE log_raw;   --loading data into the table; data will disappear and no longer be in original location.
+;
+-- It is also possible to make the external table connect directly to the data instead so the data is never moved by using instead
+-- STORED AS TEXTFILE LOCATION "/lab/data"
 ;
 
 --create internal table. NOTE: ALL INTERNAL TABLES ARE LOCATED IN HDFS "/HIVE/WAREHOUSE". ALL INTERNAL TABLES AND ASSOCIATED METADATA 
