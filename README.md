@@ -3,9 +3,10 @@ A simple example of using Hive in Hadoop to fill and query semi-structured log d
 
 Programming language: HiveQL
 
-Hive is another SQL-like interface used in Hadoop for Big Data processing using MapReduce. You create tables that are imposed 
-on unstructured data that is stored HDFS. Unlike sql, errors do not appear if data doesn't fit exactly how it should be.
-The Hive tables that are created are stored in the Hive metastore which contain metadata.
+Hive is another SQL-like interface used in Hadoop for Big Data processing using MapReduce. Tables are created that describes
+the data and is imposed on metadata that is stored HDFS (schema-on-read); opposite of sql which is schema-on-write. Then, 
+SQL commands can be used to make queries using MapReduce.
+The Hive tables that are created are stored in the Hive metastore.
 There are 2 types of tables that can be created: internal and external tables.
 Internal tables are stored in the HDFS directory /hive/warehouse and disappear when the Hadoop cluster is shut down.
 External tables are stored in created directories and remain in HDFS even after a Hadoop cluster is shut down.
