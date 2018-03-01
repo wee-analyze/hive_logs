@@ -21,5 +21,5 @@ and events with GET method.
 4. write SQL queries that run MapReduce and retrieve only url's containing "linqtosql", days with more than
 80 events, date, visit total, time of first event, time of last event, and ordered ascending by date with most visits. 
 
-To run this script, make a directory in HDFS called "/data" and load log data sample 2018_jan.txt.
+To run this script, make a directory in HDFS called "lab/data" and load log data sample 2018_jan.txt.
 This script script created an external table and 
